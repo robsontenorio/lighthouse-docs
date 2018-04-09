@@ -1,0 +1,2 @@
+webpackJsonp([0xa25129398ba8],{146:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a=n(1),l=function(){return a.createElement("div",{className:"container bg-white"},a.createElement("div",null,a.createElement("h1",null,"NOT FOUND"),a.createElement("p",null,"You just hit a route that doesn't exist... the sadness.")))};t.default=l}});
+//# sourceMappingURL=component---src-pages-404-tsx-31e86dbb21e69d46a8b4.js.map

@@ -1,0 +1,70 @@
+{
+  "assetsByChunkName": {
+    "component---src-layouts-index-tsx": [
+      "component---src-layouts-index-tsx-eba7c78c78f818a42ded.js",
+      "component---src-layouts-index-tsx-eba7c78c78f818a42ded.js.map"
+    ],
+    "path---docs-2-0-config": [
+      "path---docs-2-0-config-8be981afa91b18856043.js",
+      "path---docs-2-0-config-8be981afa91b18856043.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---docs-2-0-directives": [
+      "path---docs-2-0-directives-48d314505c0e115020cf.js",
+      "path---docs-2-0-directives-48d314505c0e115020cf.js.map"
+    ],
+    "path---docs-2-0-installation": [
+      "path---docs-2-0-installation-776453b34b1f20a993d6.js",
+      "path---docs-2-0-installation-776453b34b1f20a993d6.js.map"
+    ],
+    "path---index": [
+      "path---index-a0e39f21c11f6a62c5ab.js",
+      "path---index-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---introduction": [
+      "path---introduction-fe7718998bea8c0c68c7.js",
+      "path---introduction-fe7718998bea8c0c68c7.js.map"
+    ],
+    "commons": [
+      "commons-1a868b88a5e60db49959.js",
+      "commons-1a868b88a5e60db49959.js.map"
+    ],
+    "component---src-pages-404-tsx": [
+      "component---src-pages-404-tsx-31e86dbb21e69d46a8b4.js",
+      "component---src-pages-404-tsx-31e86dbb21e69d46a8b4.js.map"
+    ],
+    "path---404-html": [
+      "path---404-html-a0e39f21c11f6a62c5ab.js",
+      "path---404-html-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---docs-2-0-schema": [
+      "path---docs-2-0-schema-7a452fdae2f085420ea5.js",
+      "path---docs-2-0-schema-7a452fdae2f085420ea5.js.map"
+    ],
+    "path---docs-2-0-walkthrough": [
+      "path---docs-2-0-walkthrough-f60326cceb55e4b66c0b.js",
+      "path---docs-2-0-walkthrough-f60326cceb55e4b66c0b.js.map"
+    ],
+    "component---src-pages-index-tsx": [
+      "component---src-pages-index-tsx-af821cdb901209e0f616.js",
+      "component---src-pages-index-tsx-af821cdb901209e0f616.js.map"
+    ],
+    "app": [
+      "app-f2ef286fde3699f98fc3.js",
+      "build-js-styles.css",
+      "app-f2ef286fde3699f98fc3.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---404": [
+      "path---404-a0e39f21c11f6a62c5ab.js",
+      "path---404-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-templates-doc-page-tsx": [
+      "component---src-templates-doc-page-tsx-a4ae454156865f5878de.js",
+      "component---src-templates-doc-page-tsx-a4ae454156865f5878de.js.map"
+    ]
+  }
+}
