@@ -4,7 +4,7 @@ title: Tutorial
 ---
 
 
-## What is GraphQL ?
+## What is GraphQL ?
 
 GraphQL is just a specification. Defined by self as a "Query Language for APIs". It provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
