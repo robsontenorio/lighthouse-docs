@@ -59,9 +59,9 @@ A GraphQL Server for Laravel. Lighthouse is a PHP package that allows you to ser
 
 <br />
 
-1. Write a schema acording GraphQL specification;
+1. Write a schema according GraphQL specification;
 1. Decorate it with some built-in Lighthouse directives;
-1. You have a fully GraphQL API in a few minutes;
+1. You have a GraphQL API in a few minutes;
 
 <br />
 
