@@ -72,4 +72,90 @@ A GraphQL Server for Laravel. Lighthouse is a PHP package that allows you to ser
 
 ## Let's do it!
 
-[TODO: from zero to hero]
+In this tutorial we will build a simple Blog from scratch using:
+
+- Laravel 5.7
+- MySql 
+- Lighthouse 
+
+[TODO schema image]
+
+## Basic setup
+Create a fresh new laravel project. This sample uses [Laravel Instaler](https://laravel.com/docs/5.7/installation#installing-laravel).  
+
+```bash
+laravel new lighthouse-tutorial
+```
+
+Install neeeded packages. In this tutorial we will use [Laravel Graphql Playground](https://github.com/mll-lab/laravel-graphql-playground) as IDE. It's like a a powerfull Postman for GraphQL. Of course, we will use Lighthouse as GraphQL Server.
+
+```bash
+composer require nuwave/lighthouse mll-lab/laravel-graphql-playground
+```
+
+Then publish vendor config files
+```bash
+# lighthouse
+php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseServiceProvider"
+
+# playground
+php artisan vendor:publish --provider="MLL\GraphQLPlayground\GraphQLPlaygroundServiceProvider"
+```
+
+> Note that `routes/schema.graphql` was published with sample of a schema. Don't worry about it. Will change it in a while. But before, make sure everything is working fine following next steps.
+
+
+You can change Lighthouse and Laravel Playground config files, as needed. In this case, will change default namespaces for Models in  `config/lighthouse.php` , in order to keep it same as Laravel default namespaces:
+
+```php
+'namespaces' => [
+        'models' => 'App',
+        ...
+];
+```
+
+Create a empty `blogdb` database and setup conection variables on  `.env` file 
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=blogdb
+DB_USERNAME=username
+DB_PASSWORD=password
+```
+
+
+Run migrations, seed database with some fake users and run up server.
+```php
+# create tables (DDL)
+php artisan migrate
+
+# open tinker shell
+php artisan tinker
+
+# run this command inside tinker and exit
+factory('App\User', 10)->create();
+
+# run server
+php artisan serve
+
+```
+Now, your project is up and runing on http://127.0.0.1:8000 .
+
+To make sure everything is working fine, access Laravel GraphQL Playground on http://127.0.0.1:8000/graphql-playround and try some Queries:
+
+```graphql
+# find user by id
+query{
+  user(id: 1)
+  {
+    id
+    name
+    email
+  }
+}
+```
+
+
+
+## TODO // keep going 
