@@ -1,13 +1,11 @@
 ---
-id: version-2.2-schema-organisation
-title: Organize your Schema
-original_id: schema-organisation
+id: version-2.2-schema-organization
+title: Schema organization
+original_id: schema-organization
 ---
 
 As you add more and more types to your schema, it can grow quite large.
 Learn how to split your schema across multiple files and organize your types.
-
-<br/>
 
 ## Schema Imports
 
@@ -44,8 +42,6 @@ type User {
 ```
 
 The import statements are followed recursively, so it is easy to organize even the most complex of schemas.
-
-<br/>
 
 ## Type Extensions
 

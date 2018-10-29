@@ -11,7 +11,7 @@
       "fields"
     ],
     "Guides": [
-      "schema-organisation",
+      "schema-organization",
       "relay",
       "auth",
       "validation",

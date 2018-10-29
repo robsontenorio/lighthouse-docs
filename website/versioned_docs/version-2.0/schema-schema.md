@@ -1,14 +1,10 @@
 ---
 id: version-2.0-schema
-title: Schema
+title: Schema Definition
 original_id: schema
 ---
 
-**TODO: (Discuss overview of GraphQL Schema)**
-
-<br />
 In order for GraphQL to register your types/mutations/queries, we must create a schema file.
-<br /><br />
 
 ## Object Types
 

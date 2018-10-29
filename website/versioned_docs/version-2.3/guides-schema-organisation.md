@@ -1,13 +1,11 @@
 ---
-id: version-2.3-schema-organisation
-title: Organize your Schema
-original_id: schema-organisation
+id: version-2.3-schema-organization
+title: Schema organization
+original_id: schema-organization
 ---
 
 As you add more and more types to your schema, it can grow quite large.
 Learn how to split your schema across multiple files and organize your types.
-
-<br/>
 
 ## Schema Imports
 
@@ -61,8 +59,6 @@ It will be loaded using PHP's [glob function](http://php.net/manual/function.glo
 ```graphql
 #import post/*.graphql
 ```
-
-<br/>
 
 ## Type Extensions
 

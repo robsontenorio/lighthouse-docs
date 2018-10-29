@@ -7,8 +7,6 @@ A GraphQL schema is made out of types. This section describes the different set 
 and how they can be defined to work with Lighthouse. For a more in-depth reference about types,
 look into the [GraphQL documentation](https://graphql.org/learn/schema/)
 
-<br/>
-
 ## Object Type
 
 Object types define the resources of your API and are closely related to Eloquent models.
@@ -35,7 +33,7 @@ Scalar types are the most basic elements of a GraphQL schema. There are a
 few built in scalars, such as `String` or `Int`.
 
 Lighthouse provides some scalars that work well with Laravel out of the box, you can find
-them in the [default schema](installation#Publish the default schema).
+them in the [default schema](installation#publish-the-default-schema).
 
 Define your own scalar types by running `php artisan lighthouse:scalar <Scalar name>`
 and including it in your schema. Lighthouse will look for Scalar types in a configurable
