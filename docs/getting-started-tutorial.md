@@ -10,19 +10,19 @@ GraphQL is just a specification. Defined by self as a "Query Language for APIs".
 
 <br />
 
-[TODO: laravel-playground demo-gif]
+<div align="center">
+  <img src="/docs/assets/tutorial/playground.png">  
+  <small>GraphQL Playground</small>
+</div>
 
 <br />
 
 GraphQL has been released only as a *specification*. This means that GraphQL is in fact not more than a long document that describes in detail the behaviour of a GraphQL server. 
 
-<br />
+So, GraphQL has its own type system that’s used to define the schema of an API. The syntax for writing schemas is called Schema Definition Language ([SDL](https://www.prisma.io/blog/graphql-sdl-schema-definition-language-6755bcb9ce51/)).
 
-GraphQL has its own type system that’s used to define the schema of an API. The syntax for writing schemas is called Schema Definition Language ([SDL](https://www.prisma.io/blog/graphql-sdl-schema-definition-language-6755bcb9ce51/)).
 
-<br />
-
-Here is an example how we can use the SDL to define a simple type called `Person` and its relationships between another type `Post`:
+Here is an example how we can use the SDL to define a simple type called `Person` and its relationships between another type `Post`. This is a pure GraphQL schema definition, regardless of frameworks.
 
 ```graphql
 type Person {
@@ -36,28 +36,20 @@ type Post {
   author: Person!
 }
 ```
+
 Note that we just created a one-to-many-relationship between `Person` and `Post` since the `posts` field on `Person` is actually an array of `Post`. In another hand, we also defined the inverse relationship from `Post` to `Person` through `author` field.
 
 <br />
 
-
-
-**NOTE.** This short intro is a compilation from many sources and all credits goes to its authors.
-
-<br />
-
-- https://graphql.org
-- https://howtographql.com
-
-
+> This short intro above is a compilation from many sources and all credits goes to its authors.
+> - https://graphql.org
+> - https://howtographql.com
 
 <br />
 
 ## What is Lighthouse?
 
 A GraphQL Server for Laravel. Lighthouse is a PHP package that allows you to serve a GraphQL endpoint from your Laravel application. It greatly reduces the boilerplate required to create a schema, integrates well with any Laravel project, and is highly customizable giving you full control over your data.
-
-<br />
 
 1. Write a schema according GraphQL specification;
 1. Decorate it with some built-in Lighthouse directives;
@@ -72,22 +64,31 @@ A GraphQL Server for Laravel. Lighthouse is a PHP package that allows you to ser
 
 ## Let's do it!
 
-In this tutorial we will build a simple Blog from scratch using:
+In this tutorial we will build a simple Blog from scratch. One user can publish many posts, and each post has many comments.
+
+<div align="center">
+  <img src="/docs/assets/tutorial/model.png">  
+  <p><small>Diagram</small></p>
+</div>
+
+Our tools:
 
 - Laravel 5.7
 - MySql 
 - Lighthouse 
+- Laravel GraphQL Playground
 
-[TODO schema image]
+<br />
 
 ## Basic setup
-Create a fresh new laravel project. This sample uses [Laravel Instaler](https://laravel.com/docs/5.7/installation#installing-laravel).  
+
+Create a fresh new laravel project.
 
 ```bash
 laravel new lighthouse-tutorial
 ```
 
-Install neeeded packages. In this tutorial we will use [Laravel Graphql Playground](https://github.com/mll-lab/laravel-graphql-playground) as IDE. It's like a a powerfull Postman for GraphQL. Of course, we will use Lighthouse as GraphQL Server.
+In this tutorial we will use [Laravel Graphql Playground](https://github.com/mll-lab/laravel-graphql-playground) as IDE. It's like a Postman for GraphQL, but with super powers. Of course, we will use Lighthouse as GraphQL Server.
 
 ```bash
 composer require nuwave/lighthouse mll-lab/laravel-graphql-playground
@@ -102,30 +103,33 @@ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseSer
 php artisan vendor:publish --provider="MLL\GraphQLPlayground\GraphQLPlaygroundServiceProvider"
 ```
 
-> Note that `routes/schema.graphql` was published with sample of a schema. Don't worry about it. Will change it in a while. But before, make sure everything is working fine following next steps.
+> At this point note that `routes/schema.graphql` was published with sample schema. Don't worry about it. We will change it in a while. But before, make sure everything is working fine with default install  following next steps.
 
+<br />
 
-You can change Lighthouse and Laravel Playground config files, as needed. In this case, will change default namespaces for Models in  `config/lighthouse.php` , in order to keep it same as Laravel default namespaces:
+You can change Lighthouse and Laravel Playground config files, as needed. In this case, change default namespaces for Models in  `config/lighthouse.php` , in order to keep it same as Laravel default namespaces.
 
 ```php
 'namespaces' => [
-        'models' => 'App',
+        'models' => 'App', 
         ...
-];
+],
 ```
 
-Create a empty `blogdb` database and setup conection variables on  `.env` file 
+Make sure to create a empty `blog_db` database and set up connection variables in  `.env` file 
+
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=blogdb
+DB_DATABASE=blog_db
 DB_USERNAME=username
 DB_PASSWORD=password
 ```
 
 
-Run migrations, seed database with some fake users and run up server.
+Run migrations, seed database with some fake users and start the server.
+
 ```php
 # create tables (DDL)
 php artisan migrate
@@ -136,26 +140,21 @@ php artisan tinker
 # run this command inside tinker and exit
 factory('App\User', 10)->create();
 
-# run server
+# start the server
 php artisan serve
 
 ```
-Now, your project is up and runing on http://127.0.0.1:8000 .
 
-To make sure everything is working fine, access Laravel GraphQL Playground on http://127.0.0.1:8000/graphql-playround and try some Queries:
+To make sure everything is working fine, access Laravel GraphQL Playground on http://127.0.0.1:8000/graphql-playground and try some Queries:
 
 ```graphql
-# find user by id
-query{
-  user(id: 1)
-  {
+query {
+  user(id: 1) {
     id
     name
     email
   }
 }
 ```
-
-
 
 ## TODO // keep going 
