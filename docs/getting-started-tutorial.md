@@ -3,6 +3,7 @@ id: tutorial
 title: Tutorial
 ---
 
+This is a very basic intro on GraphQL world with Lighthouse.
 
 ## What is GraphQL ?
 
@@ -64,19 +65,16 @@ A GraphQL Server for Laravel. Lighthouse is a PHP package that allows you to ser
 
 ## Let's do it!
 
-In this tutorial we will build a simple Blog from scratch. One user can publish many posts, and each post has many comments.
-
-<div align="center">
-  <img src="/docs/assets/tutorial/model.png">  
-  <p><small>Diagram</small></p>
-</div>
-
-Our tools:
+In this tutorial we will create a GraphQL API for a simple Blog from scratch with:
 
 - Laravel 5.7
-- MySql 
-- Lighthouse 
+- Lighthouse 2.x
 - Laravel GraphQL Playground
+- Mysql 
+
+<br />
+
+> You can download source code from this tutorial on https://github.com/nuwave/lighthouse-tutorial
 
 <br />
 
@@ -107,7 +105,7 @@ php artisan vendor:publish --provider="MLL\GraphQLPlayground\GraphQLPlaygroundSe
 
 <br />
 
-You can change Lighthouse and Laravel Playground config files, as needed. In this case, change default namespaces for Models in  `config/lighthouse.php` , in order to keep it same as Laravel default namespaces.
+You can change Lighthouse and Laravel Playground default configs as needed. In this case, change default namespaces for Models in  `config/lighthouse.php` , in order to keep it same as Laravel default namespaces.
 
 ```php
 'namespaces' => [
@@ -157,4 +155,82 @@ query {
 }
 ```
 
-## TODO // keep going 
+Now, let's move on and create a GraphQL API for our Blog.
+
+<br />
+
+## The Models
+
+One user can publish many posts, and each post has many comments from anonymous users.
+
+<div align="center">
+  <img src="/docs/assets/tutorial/model.png">  
+  <p><small>Diagram</small></p>
+</div>
+
+This is pure Laravel. After creating models and migrations remember to run:
+
+```php
+php artisan migrate
+```
+
+// TODO : models and migrations source code
+
+## The Magic
+
+Let's edit `routes/schema.graphql` and define our blog schema, based on Eloquent Models we have created. This is mostly like a pure GraphQL schema definition, but with some Lighthouse sorcery. 
+
+
+```graphql
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+    posts: [Post] @hasMany
+}
+
+type Post {
+    id: ID!
+    title: String!
+    content: String!
+    user: User! @belongsTo
+    comments: [Comment] @hasMany
+}
+
+type Comment{
+    id: ID!
+    reply: String!
+    post: Post! @belongsTo
+}
+
+type Query{
+    posts: [Post] @all
+    post (id: Int! @eq): Post @find
+}
+
+```
+
+
+In this example:
+
+
+- By default the `types` are closely related to Eloquent Models
+- Directives add some behavior in your schema
+  - `@hasMany` / `@belongsTo` express eloquent relationships 
+  - `@all` fetch all eloquent models and return the collection
+  - `@find` find a model based on the arguments provided
+  - `@eq` places an equal operator on a eloquent query.  
+
+
+## That is it!
+
+// TODO
+
+Point to 
+http://127.0.0.1:8000/graphql-playground and try some queries
+
+```graphql
+
+```
