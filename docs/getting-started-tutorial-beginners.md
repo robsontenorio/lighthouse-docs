@@ -1,9 +1,9 @@
 ---
-id: tutorial
-title: Tutorial
+id: tutorial-beginners
+title: Tutorial Beginners
 ---
 
-This is a very basic intro on GraphQL world with Lighthouse.
+This is a very basic intro about GraphQL world with Lighthouse. Keep in mind there is a lot to learn about it. 
 
 ## What is GraphQL ?
 
@@ -74,7 +74,7 @@ In this tutorial we will create a GraphQL API for a simple Blog from scratch wit
 
 <br />
 
-> You can download source code from this tutorial on https://github.com/nuwave/lighthouse-tutorial
+> You can download source code from this tutorial at https://github.com/nuwave/lighthouse-tutorial
 
 <br />
 
@@ -174,7 +174,123 @@ This is pure Laravel. After creating models and migrations remember to run:
 php artisan migrate
 ```
 
-// TODO : models and migrations source code
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+}
+```
+
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+}
+```
+
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
+}
+```
+
+```php
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreatePostsTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->string('title');
+            $table->string('content');
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('posts');
+    }
+}
+```
+
+```php
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateCommentsTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('comments', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('post_id');
+            $table->string('reply');
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('comments');
+    }
+}
+```
 
 ## The Magic
 
