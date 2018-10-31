@@ -54,11 +54,15 @@ A GraphQL Server for Laravel. Lighthouse is a PHP package that allows you to ser
 
 1. Write a schema according GraphQL specification;
 1. Decorate it with some built-in Lighthouse directives;
+1. If necessary, write some custom `resolvers`;
 1. You have a GraphQL API in a few minutes;
 
 <br />
 
-[TODO: architecture image]
+<div align="center">
+  <img src="/docs/assets/tutorial/flow.png">  
+  <small>Where GraphQL is?</small>
+</div>
 
 <br />
 
@@ -168,7 +172,7 @@ One user can publish many posts, and each post has many comments from anonymous 
   <p><small>Diagram</small></p>
 </div>
 
-This is pure Laravel. After creating models and migrations remember to run:
+This is pure Laravel. After creating models and migrations remember to run migrate command:
 
 ```php
 php artisan migrate
@@ -332,21 +336,36 @@ type Query{
 In this example:
 
 
-- By default the `types` are closely related to Eloquent Models
+- Note that `type` name is the same as a Eloquent Model
 - Directives add some behavior in your schema
   - `@hasMany` / `@belongsTo` express eloquent relationships 
   - `@all` fetch all eloquent models and return the collection
   - `@find` find a model based on the arguments provided
   - `@eq` places an equal operator on a eloquent query.  
 
+<br />
 
-## That is it!
+## It is working!
 
-// TODO
-
-Point to 
-http://127.0.0.1:8000/graphql-playground and try some queries
+Insert some fake data into database, point to 
+http://127.0.0.1:8000/graphql-playground and try this query
 
 ```graphql
+query{
+  posts{
+    id
+    title
+    user{
+      id
+      name
+    }
+    comments{
+      id
+      reply
+    }
+  }
+}
 
 ```
+
+
