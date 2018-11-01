@@ -105,7 +105,7 @@ php artisan vendor:publish --provider="Nuwave\Lighthouse\Providers\LighthouseSer
 php artisan vendor:publish --provider="MLL\GraphQLPlayground\GraphQLPlaygroundServiceProvider"
 ```
 
-> At this point note that `routes/schema.graphql` was published with sample schema. Don't worry about it. We will change it in a while. But before, make sure everything is working fine with default install  following next steps.
+> Note that `routes/schema.graphql` was published with a sample schema. Don't worry about it. We will change it in a while. But before, we make sure everything is working fine with the default instalment in the following next steps.
 
 <br />
 
