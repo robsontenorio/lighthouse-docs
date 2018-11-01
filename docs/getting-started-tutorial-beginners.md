@@ -78,7 +78,7 @@ In this tutorial we will create a GraphQL API for a simple Blog from scratch wit
 
 <br />
 
-> You can download source code from this tutorial at https://github.com/nuwave/lighthouse-tutorial
+> You can download the source code for this tutorial at https://github.com/nuwave/lighthouse-tutorial
 
 <br />
 
