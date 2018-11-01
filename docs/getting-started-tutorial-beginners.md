@@ -90,7 +90,7 @@ Create a fresh new laravel project.
 laravel new lighthouse-tutorial
 ```
 
-In this tutorial we will use [Laravel Graphql Playground](https://github.com/mll-lab/laravel-graphql-playground) as IDE. It's like a Postman for GraphQL, but with super powers. Of course, we will use Lighthouse as GraphQL Server.
+In this tutorial we will use [Laravel Graphql Playground](https://github.com/mll-lab/laravel-graphql-playground) as IDE for GraphQL queries. It's like Postman for GraphQL, but with super powers. Of course, we will use Lighthouse as the GraphQL Server.
 
 ```bash
 composer require nuwave/lighthouse mll-lab/laravel-graphql-playground
