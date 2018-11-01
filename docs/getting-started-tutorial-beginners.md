@@ -172,7 +172,7 @@ One user can publish many posts, and each post has many comments from anonymous 
   <p><small>Diagram</small></p>
 </div>
 
-This is pure Laravel. After creating models and migrations remember to run migrate command:
+This first part is pure Laravel, we will add GraphQL part afterwards. Remember to run migration command after  creating models and migrations:
 
 ```php
 php artisan migrate
