@@ -298,7 +298,7 @@ class CreateCommentsTable extends Migration
 
 ## The Magic
 
-Let's edit `routes/schema.graphql` and define our blog schema, based on Eloquent Models we have created. This is mostly like a pure GraphQL schema definition, but with some Lighthouse sorcery. 
+Let's edit `routes/schema.graphql` and define our blog schema, based on the Eloquent Models we created. This is pure GraphQL schema definition (SDL), but with some Lighthouse sorcery through directives. 
 
 
 ```graphql
