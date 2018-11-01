@@ -18,7 +18,7 @@ GraphQL is just a specification. Defined by self as a "Query Language for APIs".
 
 <br />
 
-GraphQL has been released only as a *specification*. This means that GraphQL is in fact not more than a long document that describes in detail the behaviour of a GraphQL server. 
+GraphQL has been released only as a [*specification*](https://facebook.github.io/graphql/). This means that GraphQL is in fact not more than a long document that describes in detail the behaviour of a GraphQL server. 
 
 So, GraphQL has its own type system that’s used to define the schema of an API. The syntax for writing schemas is called Schema Definition Language ([SDL](https://www.prisma.io/blog/graphql-sdl-schema-definition-language-6755bcb9ce51/)).
 
@@ -50,12 +50,16 @@ Note that we just created a one-to-many-relationship between `Person` and `Post`
 
 ## What is Lighthouse?
 
-Lighthouse is A GraphQL Server for Laravel. It is a PHP package that allows you to serve a GraphQL endpoint from your Laravel application. Lighthouse greatly reduces the boilerplate required to create a schema (SDL). It integrates well with any Laravel project and is highly customizable, giving you full control over your data.
+Lighthouse is A GraphQL Server for Laravel. It is a PHP package that allows you to serve a GraphQL endpoint from your Laravel application. Lighthouse greatly reduces the boilerplate required to create a schema (SDL). It integrates well with any Laravel project and is highly customizable, giving you full control over your data. 
+
+The whole process can be described in 3 steps:
 
 1. Write a schema according to GraphQL specification
 1. Decorate it with some built-in Lighthouse server directives
 1. Optionally, write some custom `resolvers`
-1. You have a GraphQL API in a few minutes;
+
+<br />
+... and you are done!
 
 <br />
 
@@ -93,7 +97,11 @@ laravel new lighthouse-tutorial
 In this tutorial we will use [Laravel Graphql Playground](https://github.com/mll-lab/laravel-graphql-playground) as IDE for GraphQL queries. It's like Postman for GraphQL, but with super powers. Of course, we will use Lighthouse as the GraphQL Server.
 
 ```bash
-composer require nuwave/lighthouse mll-lab/laravel-graphql-playground
+# lighthouse 
+composer require nuwave/lighthouse 
+
+# laravel graphql playground
+composer require mll-lab/laravel-graphql-playground
 ```
 
 Then publish vendor config files
@@ -337,11 +345,14 @@ In this example:
 
 
 - Note that `type` name is the same as a Eloquent Model
-- Directives add some behavior in your schema
+- Lighthouse directives add some behavior in your schema
   - `@hasMany` / `@belongsTo` express eloquent relationships 
   - `@all` fetch all eloquent models and return the collection
   - `@find` find a model based on the arguments provided
   - `@eq` places an equal operator on a eloquent query.  
+
+<br/> 
+  > There are tons of other directives in Ligthouse, you can read more about them [here](https://lighthouse-php.netlify.com/docs/directives).
 
 <br />
 
