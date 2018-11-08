@@ -26,8 +26,8 @@
       "installation": {
         "title": "Installation"
       },
-      "tutorial-beginners": {
-        "title": "Tutorial Beginners"
+      "tutorial": {
+        "title": "Tutorial"
       },
       "auth": {
         "title": "Authentication & Authorization"
