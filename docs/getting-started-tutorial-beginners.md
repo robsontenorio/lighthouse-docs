@@ -1,6 +1,6 @@
 ---
-id: tutorial-beginners
-title: Tutorial Beginners
+id: tutorial
+title: Tutorial
 ---
 
 This is a very basic intro about GraphQL world with Lighthouse. Keep in mind there is a lot to learn about it. 
